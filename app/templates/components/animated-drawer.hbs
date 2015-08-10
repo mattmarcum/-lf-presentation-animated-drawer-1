@@ -1,0 +1,6 @@
+{{#if isOpen}}
+<div class="animation-drawer">
+  {{yield (action "closeDrawer")}}
+</div>
+{{/if}}
+<a href="#" {{action "openDrawer"}}>Open Me</a>

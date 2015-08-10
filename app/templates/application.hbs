@@ -1,3 +1,9 @@
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<h1>Animated Drawer Demo #1a</h1>
+<br>
+<br>
+{{#animated-drawer as |closeDrawer|}}
+I'm an open drawer<br/>
+<a href="#" {{action closeDrawer}}>Close Me</a>
+{{/animated-drawer}}
+<br>
+<br>
