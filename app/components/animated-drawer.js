@@ -1,7 +1,5 @@
 import Ember from 'ember';
 
-const transitionEndEvent = 'transitionend';
-
 export default Ember.Component.extend({
   classNames: ['animation-drawer-container'],
   classNameBindings: ['open'],
@@ -12,11 +10,10 @@ export default Ember.Component.extend({
   _onCloseDrawer: null,
   _setOnCloseDrawer: Ember.on('didInsertElement',
     function(){
-      var _this = this;
-      _this.set('_onCloseDrawer',
-        Ember.run.bind(_this, function(){
-          _this.set('renderDrawer', false);
-          _this.$().off(transitionEndEvent,    this.get('_onCloseDrawer'));
+      this.set('_onCloseDrawer',
+        Ember.run.bind(this, function(){
+          this.set('renderDrawer', false);
+          this.$().off(`transitionend.${_this.get('elementId')}`,    this.get('_onCloseDrawer'));
         })
       );
   	}
@@ -29,7 +26,7 @@ export default Ember.Component.extend({
     },
 
     closeDrawer(){
-      this.$().on(transitionEndEvent, this.get('_onCloseDrawer'));
+      this.$().on(`transitionend.${this.get('elementId')}`, this.get('_onCloseDrawer'));
       this.set('open', false);
     }
   }
