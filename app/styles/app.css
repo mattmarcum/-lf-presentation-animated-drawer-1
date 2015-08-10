@@ -20,10 +20,13 @@ body {
   width: 100vw;
   transform: translateY(100vh);
   transition: transform 1s ease;
-  padding: 30px;
   will-change: transform;
 }
 
 .animation-drawer-container.open .animation-drawer {
 	transform: translateY(0vh);
+}
+
+.demo-drawer {
+  padding: 30px;
 }

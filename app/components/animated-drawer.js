@@ -13,7 +13,8 @@ export default Ember.Component.extend({
       this.set('_onCloseDrawer',
         Ember.run.bind(this, function(){
           this.set('renderDrawer', false);
-          this.$().off(`transitionend.${_this.get('elementId')}`,    this.get('_onCloseDrawer'));
+          $('body').css('overflow','auto');
+          this.$().off(`transitionend.${this.get('elementId')}`,    this.get('_onCloseDrawer'));
         })
       );
   	}
@@ -22,6 +23,7 @@ export default Ember.Component.extend({
   actions: {
     openDrawer(){
       this.set('renderDrawer', true);
+      $('body').css('overflow', 'hidden');
       Ember.run.next(()=>{ this.set('open', true); });
     },
 
