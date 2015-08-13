@@ -1,11 +1,11 @@
 <h1>Animated Drawer Demo #1a</h1>
 <br>
 <br>
-{{#animated-drawer as |closeDrawer|}}
+<a href="#" {{action "toggleDrawer"}}>{{if drawerIsOpen 'Close' 'Open'}} the Drawer</a>
+
+{{#animated-drawer drawerIsOpen=drawerIsOpen toggleDrawer=(action "toggleDrawer") as |closeDrawer| }}
   <div class="demo-drawer">
     I'm an open drawer<br/>
     <a href="#" {{action closeDrawer}}>Close Me</a>
   </div>
 {{/animated-drawer}}
-<br>
-<br>
