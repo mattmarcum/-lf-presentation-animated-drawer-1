@@ -14,7 +14,9 @@ Router.map(function() {
     withParams: 'modal2IsOpen',
     dialogClass: 'animation-drawer'
   });
-
+  this.route('slide-1');
+  this.route('slide-2');
+  this.route('slide-3');
 });
 
 export default Router;

@@ -8,6 +8,18 @@ export default Ember.Controller.extend({
   modal1IsOpen: false,
   modal2IsOpen: false,
 
+  nextSlide: Ember.computed('currentRouteName', function(){
+    let currentRoute = this.get('currentRouteName');
+
+    if(currentRoute==='index'){
+      return 'slide-1';
+    }
+
+    let currentSlide = +(/slide-(\d)/.exec(currentRoute)[1]);
+    return 'slide-' + ( currentSlide === 3 ? 1 : currentSlide + 1 );
+
+  }),
+
   actions: {
     toggleDrawer() {
       this.toggleProperty('drawerIsOpen');

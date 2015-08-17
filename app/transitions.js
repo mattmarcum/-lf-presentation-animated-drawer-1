@@ -1,4 +1,10 @@
 export default function(){
+
+  this.transition(
+    this.toRoute( routeName=>/slide-\d/.test(routeName) ),
+    this.use('toLeft')
+  );
+
   this.transition(
     this.inHelper('liquid-modal'),
     this.toModal('lf-drawer1'),
@@ -12,6 +18,7 @@ export default function(){
     }),
     this.debug()
   );
+
   this.transition(
     this.inHelper('liquid-modal'),
     this.toModal('lf-drawer2'),

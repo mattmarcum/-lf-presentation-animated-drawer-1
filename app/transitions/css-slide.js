@@ -10,6 +10,8 @@ export default function () {
         resolve();
       });
       oldEl.parent().removeClass('open');
+      Ember.$('body').css('overflow','auto');
+      
     });
   } else {
     return new Promise(function(resolve){
@@ -18,6 +20,8 @@ export default function () {
       });
       newEl.css('visibility', 'visible');
       newEl.parent().addClass('open');
+      Ember.$('body').css('overflow','hidden');
+
     });
   }
 }

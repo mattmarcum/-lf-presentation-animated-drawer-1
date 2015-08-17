@@ -14,10 +14,8 @@ export default Ember.Component.extend({
     function(){
       this.set('_onCloseDrawer',
         Ember.run.bind(this, function(){
-          if(this.get('appDrawerIsOpen')){
-            this.set('renderDrawer', false);
-            $('body').css('overflow','auto');
-          }
+          this.set('renderDrawer', false);
+          Ember.$('body').css('overflow','auto');
           this.$().off(`transitionend.${this.get('elementId')}`, this.get('_onCloseDrawer'));
         })
       );

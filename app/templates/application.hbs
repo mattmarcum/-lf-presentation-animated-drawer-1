@@ -7,6 +7,9 @@
 <br/>
 <a href="#" {{action "toggleModal2"}}>{{if modal2IsOpen 'Close' 'Open'}} the LF Drawer with CSS Animations</a>
 
+{{liquid-outlet}}
+<br/>
+{{#link-to nextSlide}}{{nextSlide}}{{/link-to}}
 
 {{#animated-drawer appDrawerIsOpen=drawerIsOpen toggleDrawer=(action 'toggleDrawer') as |closeDrawer| }}
   <div class="demo-drawer">

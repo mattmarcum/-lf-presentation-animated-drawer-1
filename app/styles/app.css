@@ -40,3 +40,10 @@ body {
   background-color: #555;
   max-width: 100vw;
 }
+
+.slide {
+  width: 100vw;
+  height: 20vh;
+  background-color: gray;
+  padding: 1em;
+}
