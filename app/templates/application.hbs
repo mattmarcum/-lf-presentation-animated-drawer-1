@@ -1,8 +1,11 @@
 <h1>Animated Drawer Demo #1a</h1>
 <br>
 <br>
-<a href="#" {{action "toggleDrawer"}}>{{if drawerIsOpen 'Close' 'Open'}} the Drawer</a>
-<a href="#" {{action "toggleModal"}}>{{if modalIsOpen 'Close' 'Open'}} the Modal</a>
+<a href="#" {{action "toggleDrawer"}}>{{if drawerIsOpen 'Close' 'Open'}} the Basic CSS Animated Drawer</a>
+<br/>
+<a href="#" {{action "toggleModal1"}}>{{if modal1IsOpen 'Close' 'Open'}} the LF Drawer with JS Animations</a>
+<br/>
+<a href="#" {{action "toggleModal2"}}>{{if modal2IsOpen 'Close' 'Open'}} the LF Drawer with CSS Animations</a>
 
 
 {{#animated-drawer appDrawerIsOpen=drawerIsOpen toggleDrawer=(action 'toggleDrawer') as |closeDrawer| }}

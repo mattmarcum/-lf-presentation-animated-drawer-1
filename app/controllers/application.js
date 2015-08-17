@@ -5,15 +5,20 @@ export default Ember.Controller.extend({
 
   drawerIsOpen: false,
 
-  modalIsOpen: false,
+  modal1IsOpen: false,
+  modal2IsOpen: false,
 
   actions: {
     toggleDrawer() {
       this.toggleProperty('drawerIsOpen');
     },
 
-    toggleModal() {
-      this.toggleProperty('modalIsOpen');
+    toggleModal1() {
+      this.toggleProperty('modal1IsOpen');
+    },
+
+    toggleModal2() {
+      this.toggleProperty('modal2IsOpen');
     }
 
   }

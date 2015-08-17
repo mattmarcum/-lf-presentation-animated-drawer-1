@@ -7,8 +7,6 @@ body {
   font-family: sans-serif;
 }
 
-.animation-drawer-container {
-}
 
 .animation-drawer {
   top: 0;
@@ -18,12 +16,14 @@ body {
 	position: absolute;
   height: 100vh;
   width: 100vw;
+  max-width: 100vh;
   transform: translateY(100vh);
   transition: transform 0.5s;
   will-change: transform;
+  padding: 0;
 }
 
-.animation-drawer-container.open .animation-drawer {
+.open .animation-drawer {
 	transform: translateY(0vh);
 }
 
@@ -35,8 +35,8 @@ body {
   display:none;
 }
 .lf-drawer-dialog {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: #555;
-  max-width: none;
+  max-width: 100vw;
 }
