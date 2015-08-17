@@ -19,7 +19,7 @@ body {
   height: 100vh;
   width: 100vw;
   transform: translateY(100vh);
-  transition: transform 1s ease;
+  transition: transform 0.5s;
   will-change: transform;
 }
 
@@ -29,4 +29,14 @@ body {
 
 .demo-drawer {
   padding: 30px;
+}
+
+.lf-overlay {
+  display:none;
+}
+.lf-drawer-dialog {
+  width: 100%;
+  height: 100%;
+  background-color: #555;
+  max-width: none;
 }

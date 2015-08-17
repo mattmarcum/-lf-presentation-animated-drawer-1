@@ -6,6 +6,11 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.modal('lf-drawer', {
+    withParams: 'modalIsOpen',
+    dialogClass: 'lf-drawer-dialog'
+  });
+
 });
 
 export default Router;

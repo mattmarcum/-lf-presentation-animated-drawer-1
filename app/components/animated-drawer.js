@@ -2,10 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classNames: ['animation-drawer-container'],
-  classNameBindings: ['open'],
+  classNameBindings: ['didOpen:open'],
 
-  open: false,
+  didOpen: false,
   renderDrawer: false,
+  appDrawerIsOpen: false,
 
   _onCloseDrawer: null,
 
@@ -13,27 +14,47 @@ export default Ember.Component.extend({
     function(){
       this.set('_onCloseDrawer',
         Ember.run.bind(this, function(){
-          this.set('renderDrawer', false);
-          $('body').css('overflow','auto');
+          if(this.get('appDrawerIsOpen')){
+            this.set('renderDrawer', false);
+            $('body').css('overflow','auto');
+          }
           this.$().off(`transitionend.${this.get('elementId')}`, this.get('_onCloseDrawer'));
         })
       );
   	}
   ),
 
-  _drawerIsOpenObserver: Ember.observer('drawerIsOpen', function(){
-    if(this.get('drawerIsOpen')){
+  _appDrawerIsOpenObserver: Ember.observer('appDrawerIsOpen', function(){
+    if(this.get('appDrawerIsOpen')){
+      //for edge case where drawer was closing then swtiched to opening
+      this.$().off(`transitionend.${this.get('elementId')}`, this.get('_onCloseDrawer'));
+
       this.set('renderDrawer', true);
-      $('body').css('overflow', 'hidden');
-      Ember.run.next(()=>{ this.set('open', true); });
+
+      Ember.$('body').css('overflow', 'hidden');
+
+      Ember.run.next(()=>{
+        this.set('didOpen', true);
+        this.$('.animation-drawer').focus();
+      });
+    } else if(this.get('didOpen')) {
+      this.send('closeDrawer');
+    }
+  }),
+
+  triggerDrawer: Ember.on('didInsertElement', function() {
+    if(this.get('appDrawerIsOpen')){
+      this.propertyDidChange('appDrawerIsOpen');
     }
   }),
 
   actions: {
     closeDrawer(){
       this.$().on(`transitionend.${this.get('elementId')}`, this.get('_onCloseDrawer'));
-      this.set('open', false);
-      this.sendAction('toggleDrawer');    
+      this.set('didOpen', false);
+      if(this.get('appDrawerIsOpen')){
+        this.attrs.toggleDrawer();
+      }
     }
   }
 });
