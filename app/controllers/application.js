@@ -1,9 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ['drawerIsOpen','modalIsOpen'],
 
   drawerIsOpen: false,
+
+  basicModalIsOpen: false,
 
   modal1IsOpen: false,
   modal2IsOpen: false,
@@ -21,6 +22,10 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
+    toggleBasicModal() {
+      this.toggleProperty('basicModalIsOpen');
+    },
+
     toggleDrawer() {
       this.toggleProperty('drawerIsOpen');
     },

@@ -15,8 +15,7 @@ export default function(){
     this.reverse('explode', {
       pick: '.lm-container',
       use: ['toDown', {duration: 500 }]
-    }),
-    this.debug()
+    })
   );
 
   this.transition(
@@ -29,7 +28,6 @@ export default function(){
     this.reverse('explode', {
       pick: '.lm-container',
       use: ['cssSlide', 'animation-drawer']
-    }),
-    this.debug()
+    })
   );
 }

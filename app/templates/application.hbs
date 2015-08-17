@@ -1,15 +1,20 @@
-<h1>Animated Drawer Demo #1a</h1>
+<h1>Liquid Fire Demo</h1>
 <br>
 <br>
-<a href="#" {{action "toggleDrawer"}}>{{if drawerIsOpen 'Close' 'Open'}} the Basic CSS Animated Drawer</a>
+<a href="#" {{action "toggleBasicModal"}}>Open Basic Modal</a>
 <br/>
-<a href="#" {{action "toggleModal1"}}>{{if modal1IsOpen 'Close' 'Open'}} the LF Drawer with JS Animations</a>
 <br/>
-<a href="#" {{action "toggleModal2"}}>{{if modal2IsOpen 'Close' 'Open'}} the LF Drawer with CSS Animations</a>
-
+<a href="#" {{action "toggleDrawer"}}>{{if drawerIsOpen 'Close' 'Open'}} CSS  Drawer</a>
+<br/>
+<a href="#" {{action "toggleModal1"}}>{{if modal1IsOpen 'Close' 'Open'}} LF (JS) Drawer</a>
+<br/>
+<a href="#" {{action "toggleModal2"}}>{{if modal2IsOpen 'Close' 'Open'}} LF (CSS) Drawer</a>
+<br/>
+<br/>
 {{liquid-outlet}}
 <br/>
 {{#link-to nextSlide}}{{nextSlide}}{{/link-to}}
+
 
 {{#animated-drawer appDrawerIsOpen=drawerIsOpen toggleDrawer=(action 'toggleDrawer') as |closeDrawer| }}
   <div class="demo-drawer">
@@ -17,4 +22,6 @@
     <a href="#" {{action closeDrawer}}>Close Me</a>
   </div>
 {{/animated-drawer}}
+
+
 {{liquid-modal}}

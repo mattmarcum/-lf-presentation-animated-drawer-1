@@ -16,7 +16,7 @@ body {
 	position: absolute;
   height: 100vh;
   width: 100vw;
-  max-width: 100vh;
+  max-width: 100vw;
   transform: translateY(100vh);
   transition: transform 0.5s;
   will-change: transform;
@@ -29,6 +29,7 @@ body {
 
 .demo-drawer {
   padding: 30px;
+  color: white;
 }
 
 .lf-overlay {
@@ -39,11 +40,13 @@ body {
   height: 100vh;
   background-color: #555;
   max-width: 100vw;
+  padding: 0;
 }
 
 .slide {
   width: 100vw;
   height: 20vh;
-  background-color: gray;
+  background-color: #eee;
   padding: 1em;
+  color: #555;
 }
